@@ -1,0 +1,146 @@
+<div class="container body">
+    <div class="main_container">
+        <!-- top navigation -->
+        <div class="top_nav">
+
+            <div class="nav_menu row">
+                <nav class="" role="navigation">
+                    <!--  <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div> -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <%= current_user.full_name %>
+                                    <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+
+                                <li>
+                                    <a href="javascript:;">Help</a>
+                                </li>
+                                <li>
+                                    <%= link_to(destroy_user_session_path, method: :delete) do %>
+                                        <i class="fa fa-sign-out pull-right"></i> Log Out
+                                        <% end %>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>List Of Applicants</h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <!-- <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                      <button class="btn btn-default" type="button">Go!</button>
+                                  </span>
+                                </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+
+                                <div class="row">
+
+                                    <!--           <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                                            <ul class="pagination pagination-split">
+                                                <li><a href="#">A</a>
+                                                </li>
+                                                <li><a href="#">B</a>
+                                                </li>
+                                                <li><a href="#">C</a>
+                                                </li>
+                                                <li><a href="#">D</a>
+                                                </li>
+                                                <li><a href="#">E</a>
+                                                </li>
+                                                <li>...</li>
+                                                <li><a href="#">W</a>
+                                                </li>
+                                                <li><a href="#">X</a>
+                                                </li>
+                                                <li><a href="#">Y</a>
+                                                </li>
+                                                <li><a href="#">Z</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div> -->
+
+                                    <% @applicants.each do |applicant| %>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 animated fadeInDown">
+                                            <div class="well profile_view">
+                                                <div class="col-sm-12">
+                                                    <div class="left col-xs-7">
+                                                        <h2><%= applicant.full_name %></h2>
+                                                        <p><strong>Designation: </strong>
+                                                            <%= applicant.employments.first.designation rescue nil %>
+                                                        </p>
+                                                        <p><strong>Email: </strong>
+                                                            <%= applicant.email %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="right col-xs-5 text-center">
+                                                        <%= image_tag((case applicant.avatar; when nil then "img/user/user.jpg" else applicant.avatar end), class: "img-circle img-responsive", size: "234x234") %>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 bottom text-center">
+                                                    <div class="col-xs-12 col-sm-6 emphasis">
+                                                        <%= link_to(applicant, class: "btn btn-primary btn-xs pull-left") do %>
+                                                            <i class="fa fa-user"></i> View Profile
+                                                            <% end %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer content -->
+            <footer>
+                <div class="">
+                    <p class="pull-right">Sourcebits Career Portal.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+
+        </div>
+        <!-- /page content -->
+    </div>
+
+</div>
+<div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+</div>

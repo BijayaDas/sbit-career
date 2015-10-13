@@ -1,0 +1,43 @@
+<div class="">
+        <div id="wrapper">
+            <div class="animate form">
+                <section class="login_content">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <h1>Adminstrator Login</h1>
+                        <div>
+                        <%= f.email_field :email, autofocus: true,class: "form-control", placeholder: "Email" %>
+                        </div>
+                        <div>
+                        <%= f.password_field :password, autocomplete: "off",class: "form-control", placeholder: "Password" %>
+                        </div>
+                      <% if devise_mapping.rememberable? -%>
+                        <div class: "form-control">
+                          <%= f.check_box :remember_me, class: "pull-left" %>&nbsp;
+                          <%= f.label :remember_me, class: "pull-left" %>
+                        </div><br/>
+                      <% end -%>
+                        <div>
+                        <%= f.submit "Login", class: "btn btn-primary submit pull-left" %>
+                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                          <%= link_to "Forgot your password?", new_password_path(resource_name),class: "reset_pass pull-right" %>
+                        <% end -%>
+                           
+                        </div>
+                        <br/>
+                            <div class="clearfix"></div>
+                            <div class="clearfix"></div>
+                        
+                        <div class="separator">
+                            <div>
+                                <h1>Sourcebits Inc.</h1>
+
+                                <p>©2015 All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    <% end %>
+                    <!-- form -->
+                </section>
+                <!-- content -->
+            </div>
+        </div>
+    </div>

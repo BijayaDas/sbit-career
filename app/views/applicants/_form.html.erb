@@ -1,0 +1,34 @@
+<%= simple_form_for(@applicant) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input_field :first_name %>
+  <%= f.input_field :middle_name %>
+  <%= f.input_field :last_name %>
+  <%= f.input_field :dob %>
+  <%= f.input_field :email %>
+  <%= f.input_field :profile_pic %>
+  <%= f.input_field :nationality %>
+  <%= f.input_field :work_permit_india %>
+  <%= f.input_field :passport %>
+  <%= f.input_field :passport_no %>
+  <%= f.input_field :passport_valid_till %>
+  <%= f.input_field :gender %>
+  <%= f.input_field :visa_denied %>
+  <%= f.input_field :visa_denied_detail %>
+  <%= f.input_field :major_illness %>
+  <%= f.input_field :major_illness_detail %>
+  <%= f.input_field :convicted %>
+  <%= f.input_field :convicted_detail %>
+  <%= f.input_field :have_bond %>
+  <%= f.input_field :others %>
+  <%= f.input_field :date %>
+  <%= f.input_field :place %>
+  <%= f.input_field :sign %>
+   <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
