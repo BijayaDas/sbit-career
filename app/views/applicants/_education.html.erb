@@ -1,0 +1,45 @@
+<%= f.simple_fields_for @applicant.educations.build do |edu| %>
+    <div class="well row">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-course">Course/Degree/Certificate <span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :degree, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="first-specialization" class="control-label col-md-3 col-sm-3 col-xs-12">Specialization<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :specialization, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-Institute">Name of the Institute/University <span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :institute, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-location">Location<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :location, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-Graduation">Graduation(Month/Yr)<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :graduation_year, class: "form-control col-md-7 col-xs-12 single_cal3", readonly: true %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-Aggregate">Aggregate Marks(% or CGPA)<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= edu.input_field :marks, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+        </div>
+    </div>
+<% end %>

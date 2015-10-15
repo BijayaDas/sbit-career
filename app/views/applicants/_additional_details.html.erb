@@ -1,0 +1,107 @@
+<div class="form-horizontal form-label-left">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nationality</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :nationality, [[1, "&nbsp;Indian".html_safe],[0, "&nbsp; Others".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%= f.input_field :other_nationality_detail, class: "form-control", placeholder: "Other Nationality" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Do you hold the valid passport?</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :passport, [[1, "&nbsp;YES".html_safe],[0, "&nbsp;NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.input_field :passport_no, class: "form-control", placeholder: "Passporn number" %>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.input_field :passport_valid_till, class: "form-control", placeholder: "Valid until" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Have you been denied VISA to any country?</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :visa_denied, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%= f.input_field :visa_denied_detail, class: "form-control", placeholder: "Detail" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Have you worked on overseas assignments?</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :overseas_assignments, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%= f.input_field :overseas_assignments_detail, class: "form-control", placeholder: "Detail" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Have you suffered from any major illness
+        /surgery /accident in the last five years?</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :major_illness, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%= f.input_field :major_illness_detail, class: "form-control", placeholder: "Detail" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Have you ever been arrested, prosecuted or convicted for any criminal offense?  </label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :convicted, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%= f.input_field :convicted_detail, class: "form-control", placeholder: "Detail" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Do you have any commitment to another employer or organization that might affect your employment with us?  </label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.collection_radio_buttons :have_bond, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <%#= f.input_field :last_name, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Any other information you would like us to know which may have an impact your continuous presence at work?</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+         
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <%= f.input_field :others, class: "form-control", placeholder: "Explain in detail" %>
+            </div>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="row">
+         
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.input_field :date, class: "form-control" , placeholder: "Date"%>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.input_field :place, class: "form-control" , placeholder: "Place"%>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <%= f.input_field :sign, class: "form-control",  placeholder: "Signature" %>
+            </div>
+        </div>
+    </div>
+</div>
