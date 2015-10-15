@@ -2,7 +2,7 @@ class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:new, :create]
 
-  respond_to :html
+  respond_to :html, :pdf
   layout :resolve_layout
 
   def index
@@ -16,6 +16,18 @@ class ApplicantsController < ApplicationController
 
   def new
     @applicant = Applicant.new
+    1.times do
+      address = @applicant.addresses.build
+    end
+    3.times do
+      education = @applicant.educations.build
+    end
+    1.times do
+      employment = @applicant.employments.build
+    end
+    2.times do
+      reference = @applicant.references.build
+    end
     respond_with(@applicant)
   end
 

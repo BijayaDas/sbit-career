@@ -146,24 +146,40 @@
     </div>
 </div>
 <div id="custom_notifications" class="custom-notifications dsp_none">
-    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group"></ul>
+    <ul class="list-unstyled notifications clearfix" data-tabbed-notifications="notif-group"></ul>
     <div class="clearfix"></div>
     <div id="notif-group" class="tabbed_notifications"></div>
 </div>
-<script type="text/javascript">
+<script type="text/javascript"> 
     $(document).ready(function () {
-    // Smart Wizard
-    $('#wizard').smartWizard();
-    function onFinishCallback() {
-    $('#wizard').smartWizard('showMessage', 'Finish Clicked');
-    $("#new_applicant").submit();
-    //alert('Finish Clicked');
-    }
+    // Smart Wizard         
+    $('#wizard').smartWizard({
+        // onLeaveStep:leaveAStepCallback,
+        onFinish:onFinishCallback
     });
-    $(document).ready(function () {
+
+    function leaveAStepCallback(obj, context){
+        alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
+        return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
+    }
+      // Your Step validation logic
+    function validateSteps(stepnumber){
+       return true;
+    }
+    function onFinishCallback(objs, context){
+        if(validateAllSteps()){
+            $('#new_applicant').submit();
+        }
+    }
+
+    function validateAllSteps(){
+        var isStepValid = true;
+        // all step validation logic     
+        return isStepValid;
+    }          
     // Smart Wizard
     $('#wizard_verticle').smartWizard({
-    transitionEffect: 'slide'
+    transitionEffect: 'fade'
     });
     });
 </script>

@@ -1,4 +1,4 @@
-<%= f.simple_fields_for @applicant.employments.build do |emp| %>
+<%= f.simple_fields_for :employments do |emp| %>
     <%= emp.hidden_field :current, value: "present" %>
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="present-employer">Name of the Employer<span class="required">*</span>

@@ -1,14 +1,12 @@
 class Applicant < ActiveRecord::Base
 
-	has_many :educations
-	has_many :employments
-	has_many :references
-	has_many :addresses
+	has_many :educations, :dependent => :destroy
+	has_many :employments, :dependent => :destroy
+	has_many :references, :dependent => :destroy
+	has_many :addresses, :dependent => :destroy
 
-	accepts_nested_attributes_for :addresses, :references, :employments, :educations
-	# accepts_nested_attributes_for :references
-	# accepts_nested_attributes_for :employements
-	# accepts_nested_attributes_for :educations
+	accepts_nested_attributes_for :addresses, :references, :employments, :educations, :reject_if => :all_blank, :allow_destroy => true
+
 
 	acts_as_paranoid
 	extend FriendlyId
