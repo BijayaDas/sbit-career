@@ -12,6 +12,11 @@ class ApplicantsController < ApplicationController
 
   def show
     respond_with(@applicant)
+    # raise request.url
+    # html = render_to_string(:action => :show, :layout => 'apple.html')
+    kit = PDFKit.new(request.url)
+    # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
+    send_data(kit.to_pdf)
   end
 
   def new
