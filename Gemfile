@@ -34,11 +34,11 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
-gem 'pdfkit'
+# gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'thin', '~> 1.6.4'
 
-# gem 'wicked_pdf'
+gem 'wicked_pdf'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

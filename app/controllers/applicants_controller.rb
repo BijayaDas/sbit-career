@@ -37,11 +37,25 @@ class ApplicantsController < ApplicationController
   end
 
   def edit
-
-
-    kit = PDFKit.new(@applicant, :page_size => 'Letter', layout: 'apple.html.erb')
-    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
-    send_data kit.to_pdf, :filename => "hello.pdf", :type => 'application/pdf'
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf:                            'file_name_resume',
+               disposition:                    'attachment',                 # default 'inline'
+               template:                       'applicants/edit.html.erb',
+               layout:                         'apple.html',                   # use 'pdf.html' for a pdf.html.erb file
+               wkhtmltopdf:                    '/usr/local/bin/wkhtmltopdf', # path to binary
+               orientation:                    'Landscape',                  # default Portrait
+               page_size:                      'Letter',            # default A4
+               disable_javascript:             false,
+               disable_internal_links:         true,
+               disable_external_links:         true,
+               print_media_type:               true,
+               disable_smart_shrinking:        true,
+               use_xserver:                    true,
+               no_background:                  true
+      end
+    end
   end
 
   def create
