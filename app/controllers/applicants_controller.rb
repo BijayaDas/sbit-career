@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create, :edit]
 
   respond_to :html, :pdf
   layout :resolve_layout
@@ -12,11 +12,11 @@ class ApplicantsController < ApplicationController
 
   def show
     respond_with(@applicant)
-    # raise request.url
-    # html = render_to_string(:action => :show, :layout => 'apple.html')
-    kit = PDFKit.new(request.url)
-    # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
-    send_data(kit.to_pdf)
+    # # raise request.url
+    # # html = render_to_string(:action => :show, :layout => 'apple.html')
+    # kit = PDFKit.new(request.url)
+    # # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
+    # send_data(kit.to_pdf)
   end
 
   def new
@@ -37,6 +37,11 @@ class ApplicantsController < ApplicationController
   end
 
   def edit
+
+
+    kit = PDFKit.new(@applicant, :page_size => 'Letter', layout: 'apple.html.erb')
+    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
+    send_data kit.to_pdf, :filename => "hello.pdf", :type => 'application/pdf'
   end
 
   def create
@@ -69,6 +74,8 @@ class ApplicantsController < ApplicationController
     def resolve_layout
       case action_name
       when "show"
+        "apple"
+      when "edit"
         "apple"
       else
         "application"

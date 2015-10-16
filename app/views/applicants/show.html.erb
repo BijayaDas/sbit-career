@@ -1,4 +1,3 @@
-<!-- start:main -->
 <div class="container" id="main">
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
@@ -14,66 +13,23 @@
 				</div>
 				<div class="user">
 					<div class="text-center">
-					<%= image_tag((case @applicant.avatar; when nil then "img/user/user.jpg" else @applicant.avatar end), class: "img-circle", size: "234x234") %>
-						<!-- <img src="img/user/user.jpg" class="img-circle"> -->
+						<%= image_tag((case @applicant.avatar; when nil then "img/user/user.jpg" else @applicant.avatar end), class: "img-circle", size: "234x234") %>
 					</div>
 					<div class="user-head">
 						<h1><%= @applicant.full_name.upcase %></h1>
 						<div class="hr-center"></div>
 					</div>
 				</div>
-				<!-- <div class="link-me">
-					<div class="text-center">
-						<h3>Present Address</h3>
-						<br/>
-						Some Randome text
-					</div>
-					<div class="hr-center"></div>
-					<div class="text-center">
-						<h3>Permanent Address</h3>
-						<br/>
-						Some Randome text
-					</div>
-				</div> -->
 			</div>
 		</div>
 		<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
 			<div id="content">
-				<!-- start:navbar -->
-				<nav class="navbar navbar-default navbar-static-top" role="navigation">
-					<div class="navbar-header page-scroll">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav navbar-left">
-							<li class="page-scroll"><a href="#id-profile">// Profile</a></li>
-							<li class="page-scroll"><a href="#id-work">// Work</a></li>
-							<li class="page-scroll"><a href="#id-resume">// Resume</a></li>
-							<li class="page-scroll"><a href="#id-blog">// Reference</a></li>
-							<li class="page-scroll"><a href="#id-contact">// Contact</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li class="page-scroll"><a href="#id-work">
-								<i class="fa fa-angle-double-down"></i>
-							</a></li>
-						</ul>
-					</div>
-				</nav>
-				<!-- end:navbar -->
-				<!-- start:main content -->
 				<div class="main-content">
 					<ul class="timeline">
-						<!-- start:profile -->
 						<li id="id-profile">
 							<div class="timeline-badge default"><i class="fa fa-user"></i></div>
 							<h1 class="timeline-head">PROFILE</h1>
 						</li>
-
 						<li id="personal-info">
 							<div class="timeline-badge primary"></div>
 							<div class="timeline-panel">
@@ -102,38 +58,30 @@
 							<div class="timeline-panel">
 								<div class="col-md-6">
 									<address>
-											<strong>Present Address</strong><br>
-											<% present = @applicant.addresses.where(address_type: 0).first%>
-											<div class="col-sm-4"><abbr title="Address">Address: </abbr></div><div class="col-sm-8"><%= present.detail if !present.blank? %><br></div>
-											<div class="col-sm-4"><abbr title="City">City: </abbr> </div><div class="col-sm-8"><%= present.city if !present.blank? %><br/></div>
-											<div class="col-sm-4"><abbr title="State">State: </abbr> </div><div class="col-sm-8"><%= present.state if !present.blank? %><br/></div>
-											<div class="col-sm-4"><abbr title="PIN">PIN: </abbr> </div><div class="col-sm-8"><%= present.pin if !present.blank? %><br/></div>
+										<strong>Present Address</strong><br>
+										<% present = @applicant.addresses.where(address_type: 0).first%>
+										<div class="col-sm-4"><abbr title="Address">Address: </abbr></div><div class="col-sm-8"><%= present.detail if !present.blank? %><br></div>
+										<div class="col-sm-4"><abbr title="City">City: </abbr> </div><div class="col-sm-8"><%= present.city if !present.blank? %><br/></div>
+										<div class="col-sm-4"><abbr title="State">State: </abbr> </div><div class="col-sm-8"><%= present.state if !present.blank? %><br/></div>
+										<div class="col-sm-4"><abbr title="PIN">PIN: </abbr> </div><div class="col-sm-8"><%= present.pin if !present.blank? %><br/></div>
 										<div class="col-sm-4"><abbr title="Office">Off Phone: </abbr> </div><div class="col-sm-8"><%= present.telephone if !present.blank? %><br/></div>
 										<div class="col-sm-4"><abbr title="Residence">Res Phone: </abbr></div><div class="col-sm-8"> <%= present.mobile if !present.blank? %></div>
-
 									</address>
-									<!-- <address>
-										<strong>JONATHAN DOE</strong><br>
-										<a href="mailto:#">name@company.com</a>
-									</address> -->
 								</div>
 								<div class="col-md-6">
 									<address>
-											<strong>Permanent Address</strong><br>
-											<% permanent = @applicant.addresses.where(address_type: 1).first%>
-											<div class="col-sm-4"><abbr title="Address">Address: </abbr></div><div class="col-sm-8"><%= permanent.detail if !permanent.blank? %><br></div>
-											<div class="col-sm-4"><abbr title="City">City: </abbr> </div><div class="col-sm-8"><%= permanent.city if !permanent.blank? %><br/></div>
-											<div class="col-sm-4"><abbr title="State">State: </abbr> </div><div class="col-sm-8"><%= permanent.state if !permanent.blank? %><br/></div>
-											<div class="col-sm-4"><abbr title="PIN">PIN: </abbr> </div><div class="col-sm-8"><%= permanent.pin if !permanent.blank? %><br/></div>
+										<strong>Permanent Address</strong><br>
+										<% permanent = @applicant.addresses.where(address_type: 1).first%>
+										<div class="col-sm-4"><abbr title="Address">Address: </abbr></div><div class="col-sm-8"><%= permanent.detail if !permanent.blank? %><br></div>
+										<div class="col-sm-4"><abbr title="City">City: </abbr> </div><div class="col-sm-8"><%= permanent.city if !permanent.blank? %><br/></div>
+										<div class="col-sm-4"><abbr title="State">State: </abbr> </div><div class="col-sm-8"><%= permanent.state if !permanent.blank? %><br/></div>
+										<div class="col-sm-4"><abbr title="PIN">PIN: </abbr> </div><div class="col-sm-8"><%= permanent.pin if !permanent.blank? %><br/></div>
 										<div class="col-sm-4"><abbr title="Office">Off Phone: </abbr> </div><div class="col-sm-8"><%= permanent.telephone if !permanent.blank? %><br/></div>
 										<div class="col-sm-4"><abbr title="Residence">Res Phone: </abbr> </div><div class="col-sm-8"><%= permanent.mobile if !permanent.blank? %></div>
 									</address>
 								</div>
 							</div>
 						</li>
-						<!-- end:profile -->
-						
-						<!-- start:resume -->
 						<li id="id-resume">
 							<div class="timeline-badge default"><i class="fa fa-file"></i></div>
 							<h1 class="timeline-head">RESUME</h1>
@@ -144,15 +92,15 @@
 								<h1>Education</h1>(Begin with the most recent qualification and end with Std. X)
 								<div class="hr-left"></div>
 								<% @applicant.educations.each do |edu| %>
-									<div class="work-experience text-justify">
-										<div class="row"><div class="col-md-4"><strong>Course/Degree/Certificate: </strong></div><div class="col-md-8"> <%= edu.degree %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Name of Institute /University: </strong></div><div class="col-md-8"><%= edu.institute %><br/></div></div>
-										<div class="row"><div class="col-md-4"><strong>Specialization: </strong></div><div class="col-md-8"><%= edu.specialization %><br/></div></div>
-										<div class="row"><div class="col-md-4"><strong>Location: </strong></div><div class="col-md-8"><%= edu.location %><br/></div></div>
-										<div class="row"><div class="col-md-4"><strong>Graduation(Month/Yr.): </i> </strong></div><div class="col-md-8"><%= edu.graduation_year %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Aggregate Marks(% or CGPA): </i> </strong></div><div class="col-md-8"><%= edu.marks %></div></div>
-									</div>
-									<hr>
+								<div class="work-experience text-justify">
+									<div class="row"><div class="col-md-4"><strong>Course/Degree/Certificate: </strong></div><div class="col-md-8"> <%= edu.degree %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Name of Institute /University: </strong></div><div class="col-md-8"><%= edu.institute %><br/></div></div>
+									<div class="row"><div class="col-md-4"><strong>Specialization: </strong></div><div class="col-md-8"><%= edu.specialization %><br/></div></div>
+									<div class="row"><div class="col-md-4"><strong>Location: </strong></div><div class="col-md-8"><%= edu.location %><br/></div></div>
+									<div class="row"><div class="col-md-4"><strong>Graduation(Month/Yr.): </i> </strong></div><div class="col-md-8"><%= edu.graduation_year %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Aggregate Marks(% or CGPA): </i> </strong></div><div class="col-md-8"><%= edu.marks %></div></div>
+								</div>
+								<hr>
 								<% end %>
 							</div>
 						</li>
@@ -162,27 +110,25 @@
 								<h1>Work Experience</h1>
 								<div class="hr-left"></div>
 								<% @applicant.employments.each do |emp| %>
-									<div class="work-experience text-justify">
-										<div class="row"><div class="col-md-4"><strong>Name of the Employer: </strong></div><div class="col-md-8"><%= emp.name %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Designation: </strong></div><div class="col-md-8"><%= emp.designation %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Employee Code : </strong></div><div class="col-md-8"><%= emp.emp_id %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Dates Employed: </strong> </div><div class="col-md-8"><small><i class="fa fa-calendar"></i><%= emp.start %> - <%= emp.end %></small></div></div>
-										<% if emp.current %>
-											<div class="row"><div class="col-md-4"><strong>Notice Period: </strong> </div><div class="col-md-8"><%= emp.notice_period %></div></div>
-											<div class="row"><div class="col-md-4"><strong>Sales Turnover: </strong> </div><div class="col-md-8"><%= emp.sales_turnover %></div></div>
-											<div class="row"><div class="col-md-4"><strong> Number of Employees: </strong></div><div class="col-md-8"> <%= emp.company_streangth %></div></div>
-											<div class="row"><div class="col-md-4"><strong>Responsibilities: </strong> </div><div class="col-md-8"><%= emp.roles %></div></div>
+								<div class="work-experience text-justify">
+									<div class="row"><div class="col-md-4"><strong>Name of the Employer: </strong></div><div class="col-md-8"><%= emp.name %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Designation: </strong></div><div class="col-md-8"><%= emp.designation %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Employee Code : </strong></div><div class="col-md-8"><%= emp.emp_id %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Dates Employed: </strong> </div><div class="col-md-8"><small><i class="fa fa-calendar"></i><%= emp.start %> - <%= emp.end %></small></div></div>
+									<% if emp.current %>
+									<div class="row"><div class="col-md-4"><strong>Notice Period: </strong> </div><div class="col-md-8"><%= emp.notice_period %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Sales Turnover: </strong> </div><div class="col-md-8"><%= emp.sales_turnover %></div></div>
+									<div class="row"><div class="col-md-4"><strong> Number of Employees: </strong></div><div class="col-md-8"> <%= emp.company_streangth %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Responsibilities: </strong> </div><div class="col-md-8"><%= emp.roles %></div></div>
 									
-											<div class="row"><div class="col-md-4"><strong>Supervisor’s Name & Designation & EMAIL ID: </strong> </div><div class="col-md-8"><%= emp.supervisor_details %></div></div>
-											<div class="row"><div class="col-md-4"><strong>Can we take reference from your supervisor?: </strong> </div><div class="col-md-8"><%= emp.supervisor_as_reference %></div></div>
-										<% end %>
-										<div class="row"><div class="col-md-4"><strong>Reason For Leaving: </strong> </div><div class="col-md-8"><%= emp.leaving_reason %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Address: </strong> </div><div class="col-md-8"><%= emp.address %></div></div>
-										<div class="row"><div class="col-md-4"><strong>Phone: </strong> </div><div class="col-md-8"><%= emp.phone %></div></div>
-
-
-									</div>
-									<hr>
+									<div class="row"><div class="col-md-4"><strong>Supervisor’s Name & Designation & EMAIL ID: </strong> </div><div class="col-md-8"><%= emp.supervisor_details %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Can we take reference from your supervisor?: </strong> </div><div class="col-md-8"><%= emp.supervisor_as_reference %></div></div>
+									<% end %>
+									<div class="row"><div class="col-md-4"><strong>Reason For Leaving: </strong> </div><div class="col-md-8"><%= emp.leaving_reason %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Address: </strong> </div><div class="col-md-8"><%= emp.address %></div></div>
+									<div class="row"><div class="col-md-4"><strong>Phone: </strong> </div><div class="col-md-8"><%= emp.phone %></div></div>
+								</div>
+								<hr>
 								<% end %>
 							</div>
 						</li>
@@ -202,33 +148,31 @@
 												<th>Designation</th>
 												<th>Email</th>
 												<th>Phone</th>
-										</tr>
+											</tr>
 										</thead>
 										<tbody>
 											<% @applicant.references.each do |ref| %>
-												<tr>
-													<td><%= ref.name %></td>
-													<td><%= ref.duration %></td>
-													<td><%= ref.relationship %></td>
-													<td><%= ref.organization %></td>
-													<td><%= ref.designation %></td>
-													<td>
-														<h5>Office Email: <%= ref.off_email %></h5>
-														<h5>Personal Email: <%= ref.per_email %></h5>
-													</td>
-													<td>
-														<h5>Home Phone: <%= ref.home_phone %></h5>
-														<h5>Office Phone: <%= ref.office_phone %></h5>
-													</td>
-												</tr>
+											<tr>
+												<td><%= ref.name %></td>
+												<td><%= ref.duration %></td>
+												<td><%= ref.relationship %></td>
+												<td><%= ref.organization %></td>
+												<td><%= ref.designation %></td>
+												<td>
+													<h5>Office Email: <%= ref.off_email %></h5>
+													<h5>Personal Email: <%= ref.per_email %></h5>
+												</td>
+												<td>
+													<h5>Home Phone: <%= ref.home_phone %></h5>
+													<h5>Office Phone: <%= ref.office_phone %></h5>
+												</td>
+											</tr>
 											<% end %>
 										</tbody>
 									</table>
 								</div>
 							</div>
 						</li>
-						<!-- end:resume -->
-						<!-- start:blog -->
 						<li id="id-blog">
 							<div class="timeline-badge default"><i class="fa fa-comments"></i></div>
 							<h1 class="timeline-head">Additional Details</h1>
@@ -243,94 +187,85 @@
 												<th>Question</th>
 												<th>Answer</th>
 												<th>Others</th>
-										</tr>
+											</tr>
 										</thead>
 										<tbody>
-												<tr>
-													<td><strong>Nationality: </strong></td>
-													<td><%= @applicant.nationality %></td>
-													<td>
-														<h5>If Others, Specify Nationality : <%= @applicant.other_nationality_detail %><h5>
-														<h5>Do you have work permit to work in India? <%= @applicant.work_permit_india ? "YES" : "NO"%><h5>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>Do you hold a valid Passport(for Indian citizens only) ? </strong></td>
-													<td><%=  @applicant.passport ? "YES" : "NO" %></td>
-													<td>
-														<h5>If Yes,  Passport No : <%= @applicant.passport_no %><h5>
-														<h5>Valid till : <%= @applicant.passport_valid_till %><h5>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>Have you been denied VISA to any country ? </strong></td>
-													<td><%= @applicant.visa_denied ? "YES" : "NO" %></td>
-													<td>
-														<h5>If Yes,  Details : <%= @applicant.visa_denied_detail %><h5>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>Have you worked on overseas assignments ? </strong></td>
-													<td><%= @applicant.overseas_assignments ? "YES" : "NO" %></td>
-													<td>
-														<h5>If yes,  provide details on countries visited and type of Visas held: <%= @applicant.overseas_assignments_detail %><h5>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>Have you suffered from any major illness/surgery /accident in the last five years ? </strong></td>
-													<td><%= @applicant.major_illness ? "YES" : "NO" %></td>
-													<td>
-														<h5>If Yes, Details <%= @applicant.major_illness_detail %><h5>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>Have you ever been arrested, prosecuted or convicted for any criminal offense? </strong></td>
-													<td><%= @applicant.convicted ? "YES" : "NO" %></td>
-													<td>
-														<h5>If Yes, furnish details including type of offense and conviction: <%= @applicant.convicted_detail %><h5>
-													</td>
-												</tr>
-
-												<tr>
-													<td><strong>Do you have any commitment to another employer or organization that might affect your employment with us? </strong></td>
-													<td><%= @applicant.have_bond ? "YES" : "NO" %></td>
-													<td></td>
-												</tr>
-
-												<tr>
-													<td colspan="2"><strong>Any other information you would like us to know which may have an impact your continuous presence at work? </strong></td>
-													<td> <%= @applicant.others %> </td>
-												</tr>
-
-												<tr>
-													<td colspan="3">I hereby declare that my statements on this application and on my resume or documents provided by me to Sourcebits are correct to the best of my knowledge. I acknowledge and agree that providing any false information may result in a decision not to hire me or if hired, may result in termination of my employment. I give consent to Sourcebits to institute and conduct a background check to verify the information furnished by me in this form. </td>
-												</tr>
-													<tr>
-													<td width="35%"><strong>Date: </strong><%= @applicant.date %></td>
-													<td><strong>Place: </strong><%= @applicant.place %></td>
-													<td><strong>Signature: </strong><%= @applicant.sign %></td>
-												</tr>
-
+											<tr>
+												<td><strong>Nationality: </strong></td>
+												<td><%= @applicant.nationality %></td>
+												<td>
+													<h5>If Others, Specify Nationality : <%= @applicant.other_nationality_detail %><h5>
+													<h5>Do you have work permit to work in India? <%= @applicant.work_permit_india ? "YES" : "NO"%><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Do you hold a valid Passport(for Indian citizens only) ? </strong></td>
+												<td><%=  @applicant.passport ? "YES" : "NO" %></td>
+												<td>
+													<h5>If Yes,  Passport No : <%= @applicant.passport_no %><h5>
+													<h5>Valid till : <%= @applicant.passport_valid_till %><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Have you been denied VISA to any country ? </strong></td>
+												<td><%= @applicant.visa_denied ? "YES" : "NO" %></td>
+												<td>
+													<h5>If Yes,  Details : <%= @applicant.visa_denied_detail %><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Have you worked on overseas assignments ? </strong></td>
+												<td><%= @applicant.overseas_assignments ? "YES" : "NO" %></td>
+												<td>
+													<h5>If yes,  provide details on countries visited and type of Visas held: <%= @applicant.overseas_assignments_detail %><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Have you suffered from any major illness/surgery /accident in the last five years ? </strong></td>
+												<td><%= @applicant.major_illness ? "YES" : "NO" %></td>
+												<td>
+													<h5>If Yes, Details <%= @applicant.major_illness_detail %><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Have you ever been arrested, prosecuted or convicted for any criminal offense? </strong></td>
+												<td><%= @applicant.convicted ? "YES" : "NO" %></td>
+												<td>
+													<h5>If Yes, furnish details including type of offense and conviction: <%= @applicant.convicted_detail %><h5>
+												</td>
+											</tr>
+											<tr>
+												<td><strong>Do you have any commitment to another employer or organization that might affect your employment with us? </strong></td>
+												<td><%= @applicant.have_bond ? "YES" : "NO" %></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td colspan="2"><strong>Any other information you would like us to know which may have an impact your continuous presence at work? </strong></td>
+												<td> <%= @applicant.others %> </td>
+											</tr>
+											<tr>
+												<td colspan="3">I hereby declare that my statements on this application and on my resume or documents provided by me to Sourcebits are correct to the best of my knowledge. I acknowledge and agree that providing any false information may result in a decision not to hire me or if hired, may result in termination of my employment. I give consent to Sourcebits to institute and conduct a background check to verify the information furnished by me in this form. </td>
+											</tr>
+											<tr>
+												<td width="35%"><strong>Date: </strong><%= @applicant.date %></td>
+												<td><strong>Place: </strong><%= @applicant.place %></td>
+												<td><strong>Signature: </strong><%= @applicant.sign %></td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
 						</li>
-						<!-- end:blog -->
 					</ul>
 				</div>
-				<!-- end:main content -->
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- end:main -->
-	<!-- start:footer -->
-	<footer>
-		<div class="container">
-			<div class="text-center">
-				<p>Copyright &copy; 2015. All Right Severed</p>
 			</div>
 		</div>
-	</footer>
-	<!-- end:footer
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<div class="text-center">
+			<p>Copyright &copy; 2015. All Right Severed</p>
+		</div>
+	</div>
+</footer>
