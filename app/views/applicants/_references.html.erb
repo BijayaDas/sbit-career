@@ -1,47 +1,49 @@
 <%= f.simple_fields_for :references do |ref| %>
-    <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-name">Name<span class="required">*</span>
-        </label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :name, class: "form-control col-md-7 col-xs-12" %>
+    <div class="well row">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-name">Name<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :name, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="ref-duration" class="control-label col-md-3 col-sm-3 col-xs-12">Duration and Nature of Association<span class="required">*</span></label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :duration, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label for="ref-duration" class="control-label col-md-3 col-sm-3 col-xs-12">Duration and Nature of Association<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :duration, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="ref-organization" class="control-label col-md-3 col-sm-3 col-xs-12">Organization and Designation<span class="required">*</span></label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :organization, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label for="ref-organization" class="control-label col-md-3 col-sm-3 col-xs-12">Organization and Designation<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :organization, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="ref-office-email" class="control-label col-md-3 col-sm-3 col-xs-12">Office Email<span class="required">*</span></label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :off_email, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label for="ref-office-email" class="control-label col-md-3 col-sm-3 col-xs-12">Office Email<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :off_email, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="ref-personal-email" class="control-label col-md-3 col-sm-3 col-xs-12">Personal Email<span class="required">*</span></label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :per_email, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label for="ref-personal-email" class="control-label col-md-3 col-sm-3 col-xs-12">Personal Email<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :per_email, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-home-phone">Home Phone<span class="required">*</span>
-        </label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :home_phone, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-home-phone">Home Phone<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :home_phone, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-personal-phone">Personal Phone<span class="required">*</span>
-        </label>
-        <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= ref.input_field :office_phone, class: "form-control col-md-7 col-xs-12" %>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ref-personal-phone">Personal Phone<span class="required">*</span>
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= ref.input_field :office_phone, class: "form-control col-md-7 col-xs-12" %>
+            </div>
         </div>
     </div>
 <% end %>

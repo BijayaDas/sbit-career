@@ -43,10 +43,10 @@ class ApplicantsController < ApplicationController
         render pdf:                            'file_name_resume',
                disposition:                    'attachment',                 # default 'inline'
                template:                       'applicants/edit.html.erb',
-               layout:                         'apple.html',                   # use 'pdf.html' for a pdf.html.erb file
+               layout:                         'app_lay.html',                   # use 'pdf.html' for a pdf.html.erb file
                wkhtmltopdf:                    '/usr/local/bin/wkhtmltopdf', # path to binary
                orientation:                    'Landscape',                  # default Portrait
-               page_size:                      'Letter',            # default A4
+               page_size:                      'A4',            # default A4
                disable_javascript:             false,
                disable_internal_links:         true,
                disable_external_links:         true,
@@ -90,7 +90,7 @@ class ApplicantsController < ApplicationController
       when "show"
         "apple"
       when "edit"
-        "apple"
+        "app_lay"
       else
         "application"
       end
