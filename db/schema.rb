@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150916055134) do
     t.string   "leaving_reason"
     t.string   "supervisor_details"
     t.boolean  "supervisor_as_reference"
-    t.boolean  "current"
+    t.integer  "current",                           default: 0
     t.integer  "company_streangth",       limit: 8
     t.string   "sales_turnover"
     t.integer  "notice_period"

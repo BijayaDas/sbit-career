@@ -12,7 +12,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background:#F7F7F7;">
+<body style="background:#FFF;">
+<%= render partial: "layouts/flash_messages", flash: flash %> 
 
 <%= yield %>
 

@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:new, :create, :edit]
+  before_action :authenticate_user!, except: [:new, :create, :thank_you]
 
   respond_to :html, :pdf
   layout :resolve_layout
@@ -12,14 +12,18 @@ class ApplicantsController < ApplicationController
 
   def show
     respond_with(@applicant)
-    # # raise request.url
-    # # html = render_to_string(:action => :show, :layout => 'apple.html')
-    # kit = PDFKit.new(request.url)
-    # # kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/app.css"
-    # send_data(kit.to_pdf)
   end
 
   def new
+
+    if params[:new_app] == "true"
+       cookies[:new_app] == "true"
+    elsif cookies[:new_app] == "false"
+      return redirect_to :thank_you_applicants, flash[:success] => "You have already submitted the aplication."
+    else
+       cookies[:new_app] == "true" 
+    end
+
     @applicant = Applicant.new
     1.times do
       address = @applicant.addresses.build
@@ -60,8 +64,14 @@ class ApplicantsController < ApplicationController
 
   def create
     @applicant = Applicant.new(applicant_params)
-    @applicant.save
-    respond_with(@applicant)
+    if @applicant.save
+      redirect_to :thank_you_applicants
+    else
+      flash[:error] = "Something went wrong. Please try again!!!." 
+      redirect_to(:back)
+    end
+
+    # respond_with(@applicant)
   end
 
   def update
@@ -72,6 +82,11 @@ class ApplicantsController < ApplicationController
   def destroy
     @applicant.destroy
     redirect_to root_path
+  end
+
+  def thank_you
+    flash[:success] = "You have submitted the aplication."
+    cookies.permanent[:new_app] = false
   end
 
   private

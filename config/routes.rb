@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :applicants
+  
+  resources :applicants  do
+    collection do 
+      get 'thank_you'
+    end
+  end
 
   devise_for :users, :skip => [:registrations] 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,7 +4,9 @@
 			<div id="sidebar">
 				<div class="sosmed">
 					<div class="text-center">
-						<a href="#"><i class="fa fa fa-download fa-2x" data-toggle="tooltip" data-placement="top" title="Download Resume"></i></a>
+						<%= link_to(edit_applicant_path(@applicant, format: :pdf)) do %>
+								<i class="fa fa fa-download fa-2x" data-toggle="tooltip" data-placement="top" title="Download Resume"></i>
+						<% end %>
 						<a href="#"><i class="fa fa-check-circle fa-2x" data-toggle="tooltip" data-placement="top" title="Shortlist"></i></a>
 						<%= link_to(@applicant, method: :delete, data: {confirm: "Are you Sure? You want to Delete."}) do %>
 						<i class="fa fa-trash-o fa-2x" data-toggle="tooltip" data-placement="top" title="Delete Profile"></i>

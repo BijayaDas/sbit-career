@@ -17,7 +17,7 @@
 						<tr>
 							<td class="bold_head">Name:</td>
 							<td><%= @applicant.full_name.upcase %></td>
-							<td rowspan="4" style="background: transparent;"><%= wicked_pdf_image_tag((case @applicant.avatar; when nil then "img/user/user.jpg" else @applicant.avatar end), class: "img-circle", size: "134x134") %></td>
+							<td rowspan="4" style="background: transparent;"><%= wicked_pdf_image_tag((case @applicant.avatar; when nil then "img/user/user.jpg" else @applicant.avatar end), class: "img-circle pull-right", size: "134x134") %></td>
 						</tr>
 						<tr>
 							<td class="bold_head">Dob:</td>
@@ -89,7 +89,7 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Course/Degree/Certificate:</th>
+							<th>Course /Degree /Certificate:</th>
 							<th>Name of Institute /University:</th>
 							<th>Specialization:</th>
 							<th>Location:</th>
