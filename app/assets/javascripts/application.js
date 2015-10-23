@@ -24,3 +24,4 @@
 //= require jquery.smartWizard
 //= require moment.min2
 //= require daterangepicker
+//= require jquery.validate.min

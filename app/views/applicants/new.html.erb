@@ -152,17 +152,18 @@
     $(document).ready(function () {
     // Smart Wizard         
     $('#wizard').smartWizard({
-        // onLeaveStep:leaveAStepCallback,
+        onLeaveStep:leaveAStepCallback,
         onFinish:onFinishCallback
     });
 
     function leaveAStepCallback(obj, context){
-        alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
+        // alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
         return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
     }
       // Your Step validation logic
     function validateSteps(stepnumber){
-       return true;
+        console.log("#step-" + stepnumber);
+       return $("#new_applicant").validate();
     }
     function onFinishCallback(objs, context){
         if(validateAllSteps()){

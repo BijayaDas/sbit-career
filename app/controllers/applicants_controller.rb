@@ -17,11 +17,11 @@ class ApplicantsController < ApplicationController
   def new
 
     if params[:new_app] == "true"
-       cookies[:new_app] == "true"
+       cookies.delete :new_app
     elsif cookies[:new_app] == "false"
       return redirect_to :thank_you_applicants, flash[:success] => "You have already submitted the aplication."
     else
-       cookies[:new_app] == "true" 
+       cookies.delete :new_app
     end
 
     @applicant = Applicant.new
@@ -86,7 +86,7 @@ class ApplicantsController < ApplicationController
 
   def thank_you
     flash[:success] = "You have submitted the aplication."
-    cookies.permanent[:new_app] = false
+    cookies.permanent.signed[:new_app] = false
   end
 
   private
