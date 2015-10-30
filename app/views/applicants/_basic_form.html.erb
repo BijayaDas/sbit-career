@@ -29,7 +29,7 @@
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
         </label>
         <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= f.input_field :dob, class: "date-picker form-control col-md-7 col-xs-12", readonly: true, id: "single_cal4", placeholder: "select your date of birth" %>
+        <%= f.input_field :dob, class: "form-control col-md-7 col-xs-12 datepicker", readonly: true, placeholder: "select your date of birth" %>
         </div>
     </div>
     <div class="item form-group">
@@ -53,11 +53,6 @@
      // Setup form validation on the #register-form element
     $("#new_applicant").validate({
 
-        errorClass: 'form-control-error',
-        validClass: 'form-control-sucess',
-        ignore: "",
-
-    
         // Specify the validation rules
         rules: {
             "applicant[first_name]": "required",
@@ -65,48 +60,133 @@
             "applicant[last_name]": "required",
             "applicant[gender]": "required",
             "applicant[dob]": "required",
-            "applicant[email]": "required",
-            "applicant[avatar]": "required",
+            "applicant[email]": { required: true, email: true },
+            "applicant[avatar]": { required: true },
+
+
             "applicant[addresses_attributes][0][detail]": "required",
             "applicant[addresses_attributes][0][city]": "required",
             "applicant[addresses_attributes][0][state]": "required",
-            "applicant[addresses_attributes][0][pin]": "required",
-            "applicant[addresses_attributes][0][telephone]": "required",
-            "applicant[addresses_attributes][0][mobile]": "required",
+            "applicant[addresses_attributes][0][pin]": { required: true, number: true, maxlength: 6, minlength: 6 },
+            "applicant[addresses_attributes][0][telephone]": { required: true, number: true, maxlength: 10, minlength: 6 },
+            "applicant[addresses_attributes][0][mobile]": { required: true, number: true, maxlength: 10, minlength: 6 },
+
+
             "applicant[addresses_attributes][1][detail]": "required",
             "applicant[addresses_attributes][1][city]": "required",
             "applicant[addresses_attributes][1][state]": "required",
-            "applicant[addresses_attributes][1][pin]": "required",
-            "applicant[addresses_attributes][1][telephone]": "required",
-            "applicant[addresses_attributes][1][mobile]": "required"
+            "applicant[addresses_attributes][1][pin]": { required: true, number: true, maxlength: 6, minlength: 6 },
+            "applicant[addresses_attributes][1][telephone]": { required: true, number: true, maxlength: 10, minlength: 6 },
+            "applicant[addresses_attributes][1][mobile]": { required: true, number: true, maxlength: 10, minlength: 6 },
+
+
+            "applicant[educations_attributes][0][degree]": "required",
+            "applicant[educations_attributes][0][specialization]": "required",
+            "applicant[educations_attributes][0][institute]": "required",
+            "applicant[educations_attributes][0][location]": "required",
+            "applicant[educations_attributes][0][graduation_year]": "required",
+            "applicant[educations_attributes][0][marks]": "required",
+
+
+            "applicant[educations_attributes][1][degree]": "required",
+            "applicant[educations_attributes][1][specialization]": "required",
+            "applicant[educations_attributes][1][institute]": "required",
+            "applicant[educations_attributes][1][location]": "required",
+            "applicant[educations_attributes][1][graduation_year]": "required",
+            "applicant[educations_attributes][1][marks]": "required",
+
+
+            "applicant[educations_attributes][2][degree]": "required",
+            "applicant[educations_attributes][2][specialization]": "required",
+            "applicant[educations_attributes][2][institute]": "required",
+            "applicant[educations_attributes][2][location]": "required",
+            "applicant[educations_attributes][2][graduation_year]": "required",
+            "applicant[educations_attributes][2][marks]": "required",
+
+
+            "applicant[employments_attributes][0][name]": "required",
+            "applicant[employments_attributes][0][company_streangth]": { required: true, number: true, maxlength: 10},
+            "applicant[employments_attributes][0][sales_turnover]": "required",
+            "applicant[employments_attributes][0][address]": "required",
+            "applicant[employments_attributes][0][phone]": "required",
+            "applicant[employments_attributes][0][start]": "required",
+            "applicant[employments_attributes][0][end]": "required",
+            "applicant[employments_attributes][0][notice_period]": { required: true, number: true, maxlength: 3},
+            "applicant[employments_attributes][0][designation]": "required",
+            "applicant[employments_attributes][0][emp_id]": "required",
+            "applicant[employments_attributes][0][roles]": "required",
+            "applicant[employments_attributes][0][leaving_reason]": "required",
+            "applicant[employments_attributes][0][supervisor_details]": "required",
+            "applicant[employments_attributes][0][supervisor_as_reference]": "required",
+
+
+            "applicant[employments_attributes][1][name]": "required",
+            "applicant[employments_attributes][1][address]": "required",
+            "applicant[employments_attributes][1][phone]": "required",
+            "applicant[employments_attributes][1][start]": "required",
+            "applicant[employments_attributes][1][end]": "required",
+            "applicant[employments_attributes][1][designation]": "required",
+            "applicant[employments_attributes][1][emp_id]": "required",
+            "applicant[employments_attributes][1][roles]": "required",
+            "applicant[employments_attributes][1][leaving_reason]": "required",
+
+
+            "applicant[employments_attributes][2][name]": "required",
+            "applicant[employments_attributes][2][address]": "required",
+            "applicant[employments_attributes][2][phone]": "required",
+            "applicant[employments_attributes][2][start]": "required",
+            "applicant[employments_attributes][2][end]": "required",
+            "applicant[employments_attributes][2][designation]": "required",
+            "applicant[employments_attributes][2][emp_id]": "required",
+            "applicant[employments_attributes][2][roles]": "required",
+            "applicant[employments_attributes][2][leaving_reason]": "required",
+
+
+            "applicant[references_attributes][0][name]": "required",
+            "applicant[references_attributes][0][duration]": "required",
+            "applicant[references_attributes][0][organization]": "required",
+            "applicant[references_attributes][0][off_email]": "required",
+            "applicant[references_attributes][0][per_email]": "required",
+            "applicant[references_attributes][0][home_phone]": "required",
+            "applicant[references_attributes][0][office_phone]": "required",
+
+
+            "applicant[references_attributes][1][name]": "required",
+            "applicant[references_attributes][1][duration]": "required",
+            "applicant[references_attributes][1][organization]": "required",
+            "applicant[references_attributes][1][off_email]": "required",
+            "applicant[references_attributes][1][per_email]": "required",
+            "applicant[references_attributes][1][home_phone]": "required",
+            "applicant[references_attributes][1][office_phone]": "required",
+
+
+            "applicant[nationality]": "required",
+            "applicant[other_nationality_detail]": "required",
+            "applicant[passport]": "required",
+            "applicant[passport_no]": "required",
+            "applicant[passport_valid_till]": "required",
+            "applicant[visa_denied]": "required",
+            "applicant[overseas_assignments]": "required",
+            "applicant[overseas_assignments_detail]": "required",
+            "applicant[major_illness]": "required",  
+            "applicant[major_illness_detail]": "required",
+            "applicant[convicted]": "required",
+            "applicant[convicted_detail]": "required",  
+            "applicant[have_bond]": "required",
+            // "applicant[others]": "required",
+            "applicant[date]": { required: true },  
+            "applicant[place]": "required",
+            "applicant[sign]": "required"
         },
         
         // Specify the validation error messages
         messages: {
-            "applicant[first_name]": "required",
-            "applicant[middle_name]": "required",
-            "applicant[last_name]": "required",
-            "applicant[gender]": "required",
-            "applicant[dob]": "required",
-            "applicant[email]": "required",
-            "applicant[avatar]": "required",
-            "applicant[addresses_attributes][0][detail]": "required",
-            "applicant[addresses_attributes][0][city]": "required",
-            "applicant[addresses_attributes][0][state]": "required",
-            "applicant[addresses_attributes][0][pin]": "required",
-            "applicant[addresses_attributes][0][telephone]": "required",
-            "applicant[addresses_attributes][0][mobile]": "required",
-            "applicant[addresses_attributes][1][detail]": "required",
-            "applicant[addresses_attributes][1][city]": "required",
-            "applicant[addresses_attributes][1][state]": "required",
-            "applicant[addresses_attributes][1][pin]": "required",
-            "applicant[addresses_attributes][1][telephone]": "required",
-            "applicant[addresses_attributes][1][mobile]": "required"
+           // write some messages.
         },
         
         submitHandler: function(form) {
-            form.preventDefault();
-            // form.submit();
+            // form.preventDefault();
+            form.submit();
         }
     });
 

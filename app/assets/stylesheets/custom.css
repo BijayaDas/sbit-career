@@ -38,7 +38,11 @@ body.nav-sm .main_container .top_nav {
     z-index: 2;
 }
 .required {
-color: red;
+    color: red!important;
+}
+.error {
+    color: red!important;
+    float: left;
 }
 body.nav-sm .nav.side-menu li a {
     text-align: center !important;
@@ -2441,7 +2445,7 @@ span.section {
 
 .form-control {
     border-radius: 0;
-    line-height: 30px;
+    /*line-height: 30px;*/
     width: 100%;
 }
 
@@ -5995,7 +5999,7 @@ header{width:100%;}
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url("../../assets/img/icons.png");
+  /*background-image: url("../../assets/img/icons.png");*/
   vertical-align: middle;
 }
 
@@ -6357,4 +6361,14 @@ ul.notifications {
 }
 input[type='radio'] {
     background-color: green!important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.table-condensed {
+    width: 200px!important;
 }

@@ -11,7 +11,7 @@ class CreateApplicants < ActiveRecord::Migration
 	    t.boolean  :work_permit_india
 	    t.string   :other_nationality_detail
 	    t.boolean  :passport
-	    t.integer  :passport_no
+	    t.string  :passport_no
 	    t.string   :passport_valid_till
 	    t.integer  :gender, default: 0
 	    t.boolean  :visa_denied

@@ -150,10 +150,7 @@
 									<td class="bold_head">Number of Employees:</td>
 									<td><%= emp.company_streangth %></td>
 								</tr>
-								<tr>
-									<td class="bold_head">Responsibilities:</td>
-									<td><%= emp.roles %></td>
-								</tr>
+								
 								<tr>
 									<td class="bold_head">Supervisor’s Name & Designation & EMAIL ID:</td>
 									<td><%= emp.supervisor_details %></td>
@@ -164,6 +161,10 @@
 								</tr>
 
 							<% end %>
+							<tr>
+									<td class="bold_head">Responsibilities:</td>
+									<td><%= emp.roles %></td>
+							</tr>
 							<tr>
 								<td class="bold_head">Reason For Leaving:</td>
 								<td><%= emp.leaving_reason %></td>
@@ -226,7 +227,7 @@
 					<tbody>
 						<tr>
 							<td><strong>Nationality: </strong></td>
-							<td><%= @applicant.nationality %></td>
+							<td><%= @applicant.nationality ? "INDIAN" : "OTHERS" %></td>
 							<td>
 								<h5>If Others, Specify Nationality : <%= @applicant.other_nationality_detail %><h5>
 								<h5>Do you have work permit to work in India? <%= @applicant.work_permit_india ? "YES" : "NO"%><h5>

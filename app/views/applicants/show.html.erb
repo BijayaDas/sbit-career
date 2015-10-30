@@ -7,9 +7,11 @@
 						<%= link_to(edit_applicant_path(@applicant, format: :pdf)) do %>
 								<i class="fa fa fa-download fa-2x" data-toggle="tooltip" data-placement="top" title="Download Resume"></i>
 						<% end %>
-						<a href="#"><i class="fa fa-check-circle fa-2x" data-toggle="tooltip" data-placement="top" title="Shortlist"></i></a>
 						<%= link_to(@applicant, method: :delete, data: {confirm: "Are you Sure? You want to Delete."}) do %>
 						<i class="fa fa-trash-o fa-2x" data-toggle="tooltip" data-placement="top" title="Delete Profile"></i>
+						<% end %>
+						<%= link_to(destroy_user_session_path) do %>
+							<i class="fa fa-power-off fa-2x" data-toggle="tooltip" data-placement="top" title="Logout"></i>
 						<% end %>
 					</div>
 				</div>
@@ -117,15 +119,16 @@
 									<div class="row"><div class="col-md-4"><strong>Designation: </strong></div><div class="col-md-8"><%= emp.designation %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Employee Code : </strong></div><div class="col-md-8"><%= emp.emp_id %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Dates Employed: </strong> </div><div class="col-md-8"><small><i class="fa fa-calendar"></i><%= emp.start %> - <%= emp.end %></small></div></div>
-									<% if emp.current %>
+									<% if emp.current == "present" %>
 									<div class="row"><div class="col-md-4"><strong>Notice Period: </strong> </div><div class="col-md-8"><%= emp.notice_period %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Sales Turnover: </strong> </div><div class="col-md-8"><%= emp.sales_turnover %></div></div>
 									<div class="row"><div class="col-md-4"><strong> Number of Employees: </strong></div><div class="col-md-8"> <%= emp.company_streangth %></div></div>
-									<div class="row"><div class="col-md-4"><strong>Responsibilities: </strong> </div><div class="col-md-8"><%= emp.roles %></div></div>
+									
 									
 									<div class="row"><div class="col-md-4"><strong>Supervisor’s Name & Designation & EMAIL ID: </strong> </div><div class="col-md-8"><%= emp.supervisor_details %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Can we take reference from your supervisor?: </strong> </div><div class="col-md-8"><%= emp.supervisor_as_reference %></div></div>
 									<% end %>
+									<div class="row"><div class="col-md-4"><strong>Responsibilities: </strong> </div><div class="col-md-8"><%= emp.roles %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Reason For Leaving: </strong> </div><div class="col-md-8"><%= emp.leaving_reason %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Address: </strong> </div><div class="col-md-8"><%= emp.address %></div></div>
 									<div class="row"><div class="col-md-4"><strong>Phone: </strong> </div><div class="col-md-8"><%= emp.phone %></div></div>
@@ -194,7 +197,7 @@
 										<tbody>
 											<tr>
 												<td><strong>Nationality: </strong></td>
-												<td><%= @applicant.nationality %></td>
+												<td><%= @applicant.nationality ? "INDIAN" : "OTHERS" %></td>
 												<td>
 													<h5>If Others, Specify Nationality : <%= @applicant.other_nationality_detail %><h5>
 													<h5>Do you have work permit to work in India? <%= @applicant.work_permit_india ? "YES" : "NO"%><h5>

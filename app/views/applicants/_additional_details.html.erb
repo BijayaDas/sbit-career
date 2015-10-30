@@ -17,7 +17,7 @@
                 <%= f.collection_radio_buttons :passport, [[1, "&nbsp;YES".html_safe],[0, "&nbsp;NO".html_safe]], :first, :last %>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <%= f.input_field :passport_no, class: "form-control", placeholder: "Passporn number" %>
+                <%= f.input_field :passport_no, class: "form-control", placeholder: "Passport number" %>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <%= f.input_field :passport_valid_till, class: "form-control", placeholder: "Valid until" %>
@@ -31,7 +31,7 @@
                 <%= f.collection_radio_buttons :visa_denied, [[1, "&nbsp;YES".html_safe],[0, "&nbsp; NO".html_safe]], :first, :last %>
             </div>
             <div class="col-md-8 col-sm-8 col-xs-12">
-                <%= f.input_field :visa_denied_detail, class: "form-control", placeholder: "Detail" %>
+                <%= f.input_field :visa_denied_detail, class: "form-control", placeholder: "Detail"%>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div class="row">
          
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <%= f.input_field :date, class: "form-control" , placeholder: "Date"%>
+                <%= f.input_field :date, class: "form-control datepicker", readonly: true, placeholder: "Date"%>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <%= f.input_field :place, class: "form-control" , placeholder: "Place"%>

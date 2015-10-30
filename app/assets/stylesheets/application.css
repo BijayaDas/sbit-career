@@ -15,5 +15,5 @@
  *= require animate.min
  *= require custom
  *= require green
- *= require_self
+ *= require bootstrap-datepicker.min
  */

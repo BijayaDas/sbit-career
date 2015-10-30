@@ -23,5 +23,6 @@
 //= require custom
 //= require jquery.smartWizard
 //= require moment.min2
-//= require daterangepicker
 //= require jquery.validate.min
+//= require applicant-validation
+//= require bootstrap-datepicker
